@@ -1,0 +1,26 @@
+{% extends './base.html' %}
+
+{% block content %}
+    <h1>List </h1>
+    {% if messages %}
+        <div class="alert alert-success" role="alert">
+            <ul class="messages">
+            {% for message in messages %}
+                <li>
+                    {{ message }}
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+    <ul>
+    {% for emails in object_list %}
+        <li>
+            <p><b>Name : </b>{{ emails.name }} </p>
+            <p><b>Mail : </b> {{ emails.email }} </p>
+        </li>
+    {% empty %}
+        <li>Empty List.</li>
+    {% endfor %}
+    </ul>
+{% endblock %}
